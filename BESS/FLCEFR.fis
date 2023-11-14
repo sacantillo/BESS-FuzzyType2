@@ -1,0 +1,69 @@
+[System]
+Name='FLCEFR'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=25
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='SoCError'
+Range=[-1 1]
+NumMFs=5
+MF1='LN':'trimf',[-1 -1 -0.5]
+MF2='Z':'trimf',[-0.1 0 0.1]
+MF3='LP':'trimf',[0.5 1 1]
+MF4='N':'trimf',[-1 -0.5 0]
+MF5='P':'trimf',[0 0.5 1]
+
+[Input2]
+Name='DeltaF'
+Range=[-0.25 0.25]
+NumMFs=5
+MF1='LN':'trimf',[-0.25 -0.25 -0.125]
+MF2='Z':'trimf',[-0.0625 0 0.0625]
+MF3='LP':'trimf',[0.125 0.25 0.25]
+MF4='P':'trimf',[0 0.125 0.25]
+MF5='N':'trimf',[-0.25 -0.125 0]
+
+[Output1]
+Name='Control'
+Range=[-1 1]
+NumMFs=5
+MF1='N':'trimf',[-0.9999 -0.5 -7.17e-05]
+MF2='Z':'trimf',[-0.5 0 0.5]
+MF3='P':'trimf',[0 0.5 1]
+MF4='LN':'trimf',[-1 -1 -0.5]
+MF5='LP':'trimf',[0.5 1 1]
+
+[Rules]
+1 1, 5 (1) : 1
+1 5, 5 (1) : 1
+1 2, 3 (1) : 1
+1 4, 3 (1) : 1
+1 3, 3 (1) : 1
+4 1, 5 (1) : 1
+4 5, 3 (1) : 1
+4 2, 3 (1) : 1
+4 4, 3 (1) : 1
+4 3, 3 (1) : 1
+2 1, 2 (1) : 1
+2 5, 2 (1) : 1
+2 2, 2 (1) : 1
+2 4, 2 (1) : 1
+2 3, 2 (1) : 1
+5 1, 1 (1) : 1
+5 5, 1 (1) : 1
+5 2, 1 (1) : 1
+5 4, 1 (1) : 1
+5 3, 4 (1) : 1
+3 1, 1 (1) : 1
+3 5, 1 (1) : 1
+3 2, 1 (1) : 1
+3 4, 4 (1) : 1
+3 3, 4 (1) : 1
